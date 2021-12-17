@@ -17,6 +17,8 @@
           </form>
         </div>
       </div>
+      <div id="time"></div>
+      <!--heure-->
       <!--calendar-->	
   </body>
 </html>
