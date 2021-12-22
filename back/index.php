@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <title>Calendrier</title>
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/script.js"></script>  
+    <script src="../js/script.js"></script>  
   </head>
   <body>
     <div class="topnav">
