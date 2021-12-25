@@ -7,7 +7,7 @@ require "2-cal-core.php";
 
 
 //Enregistrer_un_Evenement : 
-    case "save":
+  case "save":
     if (!is_numeric($_POST["eid"])) { $_POST["eid"] = null; }
     echo $_CAL->save(
       $_POST["start"], $_POST["end"], $_POST["txt"], $_POST["color"],
@@ -18,7 +18,7 @@ require "2-cal-core.php";
 
 // Supprimer_un_Evenement :
   case "del":
-    echo $_CAL->del($_POST["eid"])  ? "OK" : $_CAL->error ;
+    echo $_CAL->delete($_POST["eid"])  ? "OK" : $_CAL->error ;
     break;
 
 
@@ -42,14 +42,14 @@ require "2-cal-core.php";
 
 
     // NOMS DES JOURS : 
-    $days = ["Dim","Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
+    $days = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam","Dim"];
     // AFFICHER TOUS LES JOURS : 
     foreach ($days as $d) { echo "<div class='space head'>$d</div>"; }
     unset($days);
 
 
     // LES ESPACES AVANT LE PREMIER JOUR DU MOIS : 
-    $space = $First_day;
+    $space = $First_day==0 ? 6 : $First_day-1 ;
     for ($i=0; $i<$space; $i++) { 
      echo "<div class='space blank'></div>"; }
 
@@ -61,8 +61,13 @@ require "2-cal-core.php";
     $nowDay = ($Month_now==$_POST["month"] && $Year_now==$_POST["year"]) ? date("j") : 0 ;
 
       //AFFCIHER LES JOURS : BOUCLE : 
-    for ($day = 1; $day <= $Num_days_in_month; $day++) { ?>
-    <div class="space day <?=$day==$nowDay?" today":""?>" data-day="<?=$day?>">
+    for ($day = 1; $day <= $Num_days_in_month; $day++) {
+    $date = "{$_POST["year"]}-{$_POST["month"]}-$day";
+    $weekend_test = (new DateTime($date))->format("w");
+     ?>
+    <div class="space day <?=$day==$nowDay?" today":""; 
+    ?><?=(($weekend_test==6)||($weekend_test==0))?" weak":"" ;?>
+    " data-day="<?=$day?>">
       <div class="calnum"><?=$day?></div>
 
       <!---AFFICHER TOUS LES EVENEMENTS CORRESPONDANT A CHAQUE JOUR :   --->
@@ -85,7 +90,7 @@ require "2-cal-core.php";
 
 
     // LES ESPACES APRES LE DERNIER JOUR DU MOIS : 
-     $space = $Last_day==0 ? 0 : 7-$Last_day ;
+     $space = $Last_day==0 ? 0 : 6-$Last_day ;
     for ($i=0; $i<$space; $i++) { 
       echo "<div class='space blank'></div>"; }
     
