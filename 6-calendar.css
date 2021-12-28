@@ -35,7 +35,9 @@ html, body { font-family: arial, sans-serif; }
 }
 .space.blank { background: #f2f2f2; }
 .space.today { background: #fbffde; }
-.space.weak { border:solid;border-width: 0.5px;border-color: black; }
+.space.weak { border:solid;border-width: 0.5px;border-color: black; background: #ee5c5c; }
+.space.ferie { border:solid;border-width: 0.5px;border-color: black; background: #2925e7; }
+.space.relg { border:solid;border-width: 0.5px;border-color: black; background: red; }
 
 .calnum { color: #888; }
 .calevt {
