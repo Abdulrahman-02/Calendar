@@ -35,6 +35,6 @@
       </div>
       <!--heure-->
       <div id="time"></div>
-      <!--calendar-->	
+      <!--calendar-->
   </body>
 </html>
