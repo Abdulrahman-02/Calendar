@@ -4,8 +4,20 @@
     <title>Calendar Demo</title>
     <link rel="stylesheet" href="6-calendar.css">
     <script src="5-calendar.js"></script>
+    <script src="js/script.js"></script>
   </head>
   <body>
+    <header>
+    <input type="button" name="answer" value="Préferences" onclick="showDiv()" />
+    <div id="Préferences"  style="display:none;" class="answer_list" >
+          <input type="color" id="colorSamedi">
+          <input type="button" id="colorButton" value="Changer la couleur des samedis" onclick="changeColorSamedi()">
+          <input type="color" id="colorDimanche">
+          <input type="button" id="colorButton" value="Changer la couleur des dimanches" onclick="changeColorDimanche()">
+          <input type="color" id="colorFerie">
+          <input type="button" id="colorButton" value="Changer la couleur des jours Féries" onclick="changeColorFerie()">
+    </div>
+    </header>
     <!-- (A) PERIOD SELECTOR -->
     <div id="calPeriod"><?php
       // (A1) MONTH SELECTOR

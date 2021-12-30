@@ -1,3 +1,4 @@
+//heure été ou hiver
 function checkTime(i) {
     if (i < 10) {
       i = "0" + i;
@@ -29,3 +30,40 @@ function checkTime(i) {
     }
   }
   startTime();
+
+//Préferences
+function showDiv() {
+  var x = document.getElementById("Préferences");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+ function changeColorSamedi(){
+  var hui = document.styleSheets[0].cssRules;
+  var styleBySelector = {};
+  for (var i=0; i<hui.length; i++)
+  styleBySelector[hui[i].selectorText] = hui[i].style;
+  let colorSamedi = document.getElementById('colorSamedi').value;
+  styleBySelector[".space.samedi"].backgroundColor = colorSamedi;
+ }
+
+ function changeColorDimanche(){
+  var hui = document.styleSheets[0].cssRules;
+  var styleBySelector = {};
+  for (var i=0; i<hui.length; i++)
+  styleBySelector[hui[i].selectorText] = hui[i].style;
+  let colorDimanche = document.getElementById('colorDimanche').value;
+  styleBySelector[".space.dimanche"].backgroundColor = colorDimanche;
+ }
+
+ function changeColorFerie(){
+  var hui = document.styleSheets[0].cssRules;
+  var styleBySelector = {};
+  for (var i=0; i<hui.length; i++)
+  styleBySelector[hui[i].selectorText] = hui[i].style;
+  let colorFerie = document.getElementById('colorFerie').value;
+  styleBySelector[".space.ferie"].backgroundColor = colorFerie;
+ }
