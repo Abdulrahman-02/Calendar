@@ -97,16 +97,17 @@ require "2-cal-core.php";
 
      ?>
     <div class="space day <?=$day==$nowDay?" today":""; ?>
-    <?=(($weekend_test=='6')||($weekend_test=='0'))?" weak":""; //weekend?>
+    <?=($weekend_test=='6')?"samedi":""; //samedi?>
+    <?=($weekend_test=='0')?"dimanche":""; //dimanche?>
     <?=(($jF=='01') and ($mF=='01'))?"ferie":"";//jourAn?>
     <?=((($jF=='01') or ($jF=='08')) and ($mF=='05'))?"ferie":"";//1 et 8 mai?>
     <?=(($jF=='14') and ($mF=='07'))?"ferie":"";//fete national?>
-    <?=((($jF=='01') or ($jF=='11')) and ($mF=='11'))?"relg":"";//touissant et armistice?>
-    <?=(($jF=='25') and ($mF=='12'))?"relg":"";//noel?>
-    <?=(($jF=='15') and ($mF=='08'))?"relg":"";//assomption?>
-    <?=(($jF==$lpJ) and ($mF==$lpM))?"relg":"";//lundiPaque?>
-    <?=(($jF== $aJ) and ($mF==$aM))?"relg":"";//Ascension?>
-    <?=(($jF== $lpenJ) and ($mF==$lpenM))?"relg":"";//LundiPentecote?>
+    <?=((($jF=='01') or ($jF=='11')) and ($mF=='11'))?"ferie":"";//touissant et armistice?>
+    <?=(($jF=='25') and ($mF=='12'))?"ferie":"";//noel?>
+    <?=(($jF=='15') and ($mF=='08'))?"ferie":"";//assomption?>
+    <?=(($jF==$lpJ) and ($mF==$lpM))?"ferie":"";//lundiPaque?>
+    <?=(($jF== $aJ) and ($mF==$aM))?"ferie":"";//Ascension?>
+    <?=(($jF== $lpenJ) and ($mF==$lpenM))?"ferie":"";//LundiPentecote?>
 
     " data-day="<?=$day?>">
       <div class="calnum"><?=$day?></div>
